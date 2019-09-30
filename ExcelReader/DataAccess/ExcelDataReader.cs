@@ -10,7 +10,7 @@ namespace ExcelReader.DataAccess
 {
     public class ExcelDataReader
     {
-        private string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\emrah\Downloads\Spoyi.com.xlsx;" +
+        private string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = Spoyi.com.xlsx;" +
                                             "Extended Properties = 'Excel 8.0;HDR=YES'";
 
         public DataTable GetAll()
@@ -23,7 +23,7 @@ namespace ExcelReader.DataAccess
                 }
                 conn.Open();
                 OleDbDataAdapter objDA = new OleDbDataAdapter
-                ("select Design,Name,Order_ID,BackColor from [termos$] where Desc is null", conn);
+                ("select * from [termos$] where Desc is null", conn);
                 DataSet excelDataSet = new DataSet();
                 objDA.Fill(excelDataSet);
                 return excelDataSet.Tables[0];
