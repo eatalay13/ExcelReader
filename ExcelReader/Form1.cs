@@ -34,7 +34,7 @@ namespace ExcelReader
             {
                 if (data != null || data.Rows.Count > 0)
                 {
-                    using (StreamWriter file = File.CreateText(@"siparisler.json"))
+                    using (StreamWriter file = File.CreateText("../OtoAdmin/DataFiles/siparisler.json"))
                     {
                         JsonSerializer serializer = new JsonSerializer();
                         serializer.Serialize(file, data);
